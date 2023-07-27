@@ -30,7 +30,7 @@ vertical-align: bottom;
 .container{
 position: absolute;
 max-width: 800px;
-height: 100%;
+height: 500px;
 top: 0;
 left: 0;
 right: 0;
@@ -39,6 +39,7 @@ margin: auto;
 background-color: #fff;
 padding: 50px;
 z-index: 1;
+overflow: scroll;
 }
 #bg{
 position: fixed;
