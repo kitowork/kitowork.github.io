@@ -1,0 +1,359 @@
+@charset "UTF-8";
+
+*{
+    margin: 0 ;
+    padding: 0;
+    line-height: 1;
+    box-sizing: border-box;
+    /* 幅を指定した要素（タグ）にborder、paddingを設定した際に要素が広がってしまうことを防ぐため */
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    /*   ここまでフォントファミリー  各OSに適したフォントを用意しておく*/
+    color: #444;
+    /* サイト全体の文字色を定義しておく */
+}
+
+ul {
+    list-style: none;
+    /*   liの装飾を削除する  */
+}
+
+a {
+    text-decoration: none;
+    /*   aタグの初期設定。aタグはでデフォルトで持っている下線を消しておく */
+}
+
+img{
+    max-width: 100%;
+    /* 親要素の大きさ以上大きくならず、かつ、自身の原寸大以上に大きくならない */
+    height: auto;
+    /* タグのほうでの高さ指定を調整 今のところ、あってもなくても-- Wordpressでは使うかも */
+    vertical-align: bottom;
+    /* imgは、文字と同等扱いなので、必ず下部に余白（デセンダー）が出来てしまうのを防ぐ。他の防ぐ方法としてインライン要素をブロック要素に変える方法もあり */
+}
+
+p{
+    line-height: 1.8;
+}
+
+/*-----------------------------------------
+    pc max-setting   
+-----------------------------------------*/
+
+.container {
+    max-width: 1024px;
+    /* 最大値、1024px それ以下可変　max-width使用 */
+    margin: 0 auto;
+    /* ブロック要素の中央揃い　m0ｰa */
+}
+
+/*PCの情報コンテンツの最大幅の設定 ------ 各パーツでこのCSSを再利用、または流用（マルチクラス）　*/
+
+
+
+/*-----------------------------------------
+    header - setting   
+-----------------------------------------*/
+
+header{
+    height: 160px;
+    position: relative;
+    /* .logoの親要素設定 */
+}
+/* 現在表示されているブラウザの高さ100％から、60ピクセル(現時点でのnavの高さ)引いた高さを表示 */
+header .logo{
+    position: absolute;
+    left: 30px;
+    /* bottom: 100px; */
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+
+}
+
+header .logo h1{
+text-align: center;
+/* テキスト中央揃い */
+font-size: 26px;
+/* フォントサイズ20px以上で適当 */
+padding: 50px 0 60px;
+/* 上下のpadding適当 */
+background-color: rgba(255, 255, 255, 0.7);
+/* 背景色、#fffの透明度、0.7程度 */
+font-family: 'Josefin Slab', serif;
+}
+
+header .logo h1 span{
+display: block;
+/* spanのブロック設定 */
+font-size: 16px;
+margin-bottom: 3px;
+/* フォントサイズと、下側の文字との余白適宜設定 */
+}
+
+
+header .slider li{
+    height: 70vh
+}
+header .slider li img{
+   object-fit: cover;
+    width: 100%;
+   height: 100%;
+    object-position: center;
+}
+
+
+
+/*-----------------------------------------
+    burger - responsive - setting   
+-----------------------------------------*/
+
+#burger{
+    position: fixed;
+    z-index: 1;
+    width: 50px;
+    height: 45px;
+    background-color: rgb(61, 63, 62);
+    right: 5%;
+    top: 30px;
+    transition: .3s;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#burger span{
+    position: absolute;
+    width: 80%;
+    height: 3px;
+    background-color: #fff;
+    inset: 0;
+    margin: auto;
+    transition: .3s;
+}
+
+#burger span:nth-child(1){
+    background-color: #fff; 
+    top: -38%;
+
+}
+
+#burger span:nth-child(3){
+
+    background-color: #fff; 
+    top: 38%;
+
+}
+
+#burger.active{
+    background-color: rgb(186, 76, 76);
+}
+
+#burger.active span:nth-child(1){
+    top: 10%;
+}
+
+#burger.active span:nth-child(2){
+    opacity: 0;
+}
+
+#burger.active span:nth-child(3){
+    top: -10%;
+}
+
+
+
+/*-----------------------------------------
+    nav - pc- setting   
+-----------------------------------------*/
+
+.nav_pc{
+
+    position: fixed;
+    /* position、固定、幅・高さ、100%の設定 */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 100%;
+    /* top 0、left 100%で枠外に隠す設定 */
+    background-color: rgb(61, 63, 62);
+    /* 背景色適宜 */
+    transition: .3s;
+    /* 隠していいる、.nav_pcを戻して見せる時のtransition設定 */
+    z-index: 1;
+}
+
+.nav_pc .nav_inner{
+    padding-top: 100px;
+    /* padding-topで適宜見やすい位置に調整 */
+}
+
+.nav_pc .nav_inner a{
+    display: block;
+    /* aタグのブロックボックスへの変換 */
+    text-align: center;
+    line-height: 60px;
+    /* 水平・縦中央揃い 縦中央はline-height:60pxの設定 */
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: .1em;
+    /* 文字装飾適宜設定 */
+    font-family: 'Josefin Slab', serif;
+}
+
+.nav_pc.drawer{
+    left:0;
+    /* バーガーボタンがクリックされたら、drawerクラスを追加するための設定 */
+}
+
+
+
+
+/*-----------------------------------------
+    main - setting   
+-----------------------------------------*/
+.container{
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Josefin Slab', serif;
+}
+.container .item-img{
+  width: 58%;
+  padding-right: 15px;
+}
+.container .item-text{
+  width: 40%;
+}
+
+
+.main.container{
+    margin: 0 auto 70px;
+    /* PC表示の際、.mainと、.containerのマルチクラスの時だけ、marginのbottomに70pxを追加　*/        
+    padding: 0 15px; 
+    /* 両サイドの余白があるとより良い */
+}
+
+.main h2{
+    font-size: 30px;
+    /* フォントサイズ、40px前後で設定 */
+    padding: 10px 0;
+    /* 上下の余白、20px 30px設定 */
+}
+
+.main h3{
+    margin-top: 18px;
+    /* font-size: 30px; */
+    /* フォントサイズ、40px前後で設定 */
+    padding: 10px 0;
+    /* 上下の余白、20px 30px設定 */
+}
+
+.main p{
+    font-size: 14px;
+    /* フォントサイズ、40px前後で設定 */
+    padding-bottom: 10px ;
+    /* 上下の余白、20px 30px設定 */
+}
+
+.main table{
+    font-size: 14px;
+    /* フォントサイズ、40px前後で設定 */
+    margin-bottom: 20px ;
+    border-collapse:  collapse; 
+}
+.main table input{
+  margin-right: 8px;
+  vertical-align: bottom;
+}
+.main table th,.main table td {
+    padding: 6px;
+    border: solid 1px;
+}
+
+
+/* .main a{
+    display: block;
+    width: 80%;
+    padding: 20px 30px;
+    text-align: center;
+    background-color:  #ddd;
+    color: #000;
+}
+.main a:hover{
+    background-color: #444;
+    color: #ddd;
+} */
+
+.main p input[type='submit']{
+    padding: 15px 30px;
+    background-color: #444;
+    color: #fff;
+}
+
+.main dl{
+    font-size: 12px;
+    /* フォントサイズ、40px前後で設定 */
+    padding-bottom: 120px ;
+    /* 上下の余白、20px 30px設定 */
+}
+.main dt{
+    padding-bottom: 4px ;
+}
+.main dd{
+    padding-bottom:16px ;
+    line-height: 1.5;
+}
+
+
+
+
+/*-----------------------------------------
+    footer - setting   
+-----------------------------------------*/
+
+footer{
+    background-color: #ddd;
+}
+
+footer p{
+    padding: 50px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
+@media (max-width:768px){
+
+
+    /*-----------------------------------------
+        header - responsive - setting   
+    -----------------------------------------*/
+
+    header .logo {
+        position: static;
+        /* positionの初期値設定 */
+        width: auto;
+        /* 幅の初期値設定 */     
+    }
+
+    header .logo h1{
+        font-size: 20px;
+        /* フォントサイズ20px以上で適当 */
+        padding: 35px 0;
+        /* 上下のpadding適当 */
+
+    }
+
+    header .logo h1 span{
+        font-size: 16px;
+    } 
+
+    header .slider li{
+        height:40vh; 
+    }
+
+
+}
+

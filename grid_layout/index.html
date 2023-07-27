@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K Funiture Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">  
+    <link rel="stylesheet" href="css/jquery.bxslider.css"> 
+</head>
+<body>
+    <p id="burger" class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </p>
+    <!-- burger button -->
+
+    <header id="funiture_top">
+        <div class="logo">
+            <h1><span>Renewal Open </span>K Funiture Store</h1>
+        </div>
+        <ul class="slider">
+            <li><img src="img/hiro1.jpg" alt="結婚イメージ1"></li>
+            <li><img src="img/hiro2.jpg" alt="結婚イメージ2"></li>
+            <li><img src="img/hiro3.jpg" alt="結婚イメージ3"></li>
+        </ul>
+    </header>
+    <!-- header -->
+    <nav id="g_nav" class="nav_pc">
+            <ul class="nav_inner">
+                <li><a href="#chair">Chair</a></li>
+                <li><a href="#desk">Desk</a></li>
+                <li><a href="#rug">Rug</a></li>
+                <li><a href="#funiture_top">Top</a></li>
+            </ul>
+    </nav>
+    <!-- nav  -->
+
+    <main class="main container">
+        <section id="chair"  class="item"   >
+            <h2>Chair</h2>
+            <ul>
+                <li>
+                    <div class="list">
+                        <div class="img">
+                            <a href="chair1.html"><img src="img/chair1.jpg" alt="chair1"></a>
+                        </div>
+                        <h3>chair1</h3>
+                        <p>¥99.999 + tax</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="list">
+                        <div class="img">
+                            <img src="img/chair2.jpg" alt="chair2">
+                        </div>
+                        <h3>chair2</h3>
+                        <p>¥99.999 + tax</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="list">
+                        <div class="img">
+                            <img src="img/chair3.jpg" alt="chair3">
+                        </div>
+                        <h3>chair3</h3>
+                        <p>¥99.999 + tax</p>
+                    </div>
+                </li>
+            </ul>
+
+        </section>
+        <!-- section chair -->
+
+        <section id="desk" class="item">
+            <h2>Desk</h2>
+            <ul>
+                <li>
+                    <div class="list">
+                        <div class="img">
+                            <img src="img/desk1.jpg" alt="desk1">
+                        </div>
+                        <h3>desk1</h3>
+                        <p>¥99.999 + tax</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="list">
+                        <div class="img">
+                            <img src="img/desk2.jpg" alt="desk2">
+                        </div>
+                        <h3>desk2</h3>
+                        <p>¥99.999 + tax</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="list">
+                        <div class="img">
+                            <img src="img/desk3.jpg" alt="desk3">
+                        </div>
+                        <h3>desk3</h3>
+                        <p>¥99.999 + tax</p>
+                    </div>
+                </li>
+            </ul>
+
+        </section>
+        <!-- section desk -->
+
+        <section id="rug" class="item">
+            <h2>Rug</h2>
+            <ul>
+                <li>
+                    <div class="list">
+                        <div class="img">
+                            <img src="img/rug1.jpg" alt="rug1">
+                        </div>
+                        <h3>rug1</h3>
+                        <p>¥99.999 + tax</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="list">
+                        <div class="img">
+                            <img src="img/rug2.jpg" alt="rug1">
+                        </div>
+                        <h3>rug1</h3>
+                        <p>¥99.999 + tax</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="list">
+                        <div class="img">
+                            <img src="img/rug3.jpg" alt="rug1">
+                        </div>
+                        <h3>rug1</h3>
+                        <p>¥99.999 + tax</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="list">
+                        <div class="img">
+                            <img src="img/rug4.jpg" alt="rug1">
+                        </div>
+                        <h3>rug1</h3>
+                        <p>¥99.999 + tax</p>
+                    </div>
+                </li>
+            </ul>
+
+        </section>
+        <!-- section rug -->
+
+    </main>
+    <!-- main -->
+
+    <footer>
+        <p>K Funiture Store copy right 2023</p>
+    </footer>
+    <!-- footer -->
+    
+    <!-- to Top -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="jquery.bxslider.min.js"></script>
+    <script>
+
+    $(function(){
+        
+        // -----------------------
+        //  bxSlider
+        // -----------------------
+
+        $('header .slider').bxSlider({
+            auto:true,
+            speed:4000,
+            pager:false,
+            controls:false,
+            mode:'fade',
+        });
+
+
+        // -----------------------
+        //  burger メニュー関連 
+        // -----------------------
+        let burger= $('#burger');
+        let g_nav= $('#g_nav');
+        let g_nav_a= $('#g_nav a');
+        // 各HTMLの場所を変数、burger、navSp、navSp_aに代入
+
+        burger.on('click',function(){
+            $(this).toggleClass('active');
+            g_nav.toggleClass('drawer');
+            
+        });
+
+        g_nav_a.on('click',function(){
+            burger.toggleClass('active');
+            g_nav.toggleClass('drawer');
+            
+        });
+});
+  
+
+    </script>
+</body>
+</html>

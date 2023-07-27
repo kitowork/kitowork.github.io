@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>ゴリラ</title>
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap' rel='stylesheet'>
+
+  <style>
+    /* 共通 */
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    :root{
+      --y: #e5e878;
+      --g: #133024;
+      --b: #000;
+      --w: #eef8f1;
+      --r: #c9430a;
+    }
+    body{
+      background-color: var(--y);
+    }
+    .container{
+      max-width: 960px;
+      margin: auto;
+      text-align: center;
+      font-family: 'Dela Gothic One', cursive;
+    }
+
+    /* スタート画面 */
+    .start-btn{
+      width: 300px;
+      height: 80px;
+      margin-top: 100px;
+      cursor: pointer;
+      font-size: 30px;
+      font-family: 'Dela Gothic One', cursive;
+      background-color: var(--w);
+      color: var(--b);
+      border: 4px solid var(--g);
+    }
+    .start-btn:hover,.choice>p:hover{
+      background-color: var(--g);
+      color: var(--w);
+      border: 4px solid var(--g);
+    }
+
+    /* メイン画面 */
+    #main{
+      display: none;
+    }
+    h1{
+      margin: 30px;
+      font-size: 60px;
+      -webkit-text-stroke: 1px var(--g);
+      color: var(--w);
+    }
+    h2{
+      margin-bottom: 2px;
+      font-size: 46px;
+      -webkit-text-stroke: 0.1px var(--y);
+    }
+    .qa{
+      max-width: 600px;
+      /* height: 600px; */
+      aspect-ratio: 1;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      position: relative;
+      overflow: hidden;
+      border: 4px solid var(--g);
+    }
+    .img,.txt{
+      /* max-width: 600px; */
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+    }
+    .txt{
+      padding-top: 10%;
+      font-size: 40px;
+      color:  var(--r);
+      background-color: var(--y);
+    }
+
+    .img1{z-index: 95;}
+    .txt1{z-index: 90;}
+    .img2{z-index: 85;}
+    .txt2{z-index: 80;}
+    .img3{z-index: 75;}
+    .txt3{z-index: 70;}
+    .img4{z-index: 65;}
+    .txt4{z-index: 60;}
+    .img5{z-index: 55;}
+    .txt5{z-index: 50;}
+    .img6{z-index: 45;}
+    .txt6{z-index: 40;}
+    .img7{z-index: 35;}
+    .txt7{z-index: 30;}
+    .img8{z-index: 25;}
+    .txt8{z-index: 20;}
+    .img9{z-index: 15;}
+    .txt9{z-index: 10;}
+    .img10{z-index: 5;}
+    .txt10{z-index: 0;}
+
+    .choice {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .choice>p{
+      display: block;
+      margin-bottom: 4px;
+      padding: 10px 30px;
+      cursor: pointer;
+      font-size: 20px;
+      background-color: var(--w);
+      color: var(--g);
+      border: 4px solid var(--g);
+    }
+    .choice>.next{
+      display: none;
+    }
+
+    /* ゲームオーバー画面 */
+    #gameover{
+      display: none;
+    }
+
+    @media(max-width:680px){
+      .container{
+        max-width: 95%;
+        padding: 4px;
+      }
+      h1,h2{
+        font-size: 24px;
+      }
+      .start-btn{
+        width: 80%;
+        margin-top: 50px;
+        height: 60px;
+        font-size: 24px;
+      }
+      .img{
+        /* max-width: 100%; */
+        width: 100%;
+      }
+      .qa{
+        /* max-width: 100%; */
+        width: 100%;
+        /* height: 100%; */
+        aspect-ratio: 1;
+      }
+      .txt{
+        /* padding-top: 50px; */
+        font-size: 16px;
+      }
+      .choice {
+        max-width: 100%;
+      }
+      .choice>p{
+        padding: 8px 30px;
+      }
+    }/* @media end */
+  </style>
+</head>
+
+<body>
+  <div class='container'>
+
+    <h1>ゴリラクイズ</h1>
+    <div id='start'>
+      <button class='start-btn'>スタート</button>
+    </div>
+
+    <main id='main'>
+      <h2>このゴリラの血液型は？</h2>
+      <div class='qa'>
+        <p><img class='img1 img' src='img/g1.jpg' alt=''></p>
+        <p class='txt1 txt'>正解！<br>ゴリラは、アフリカ大陸に<br>生息しているよ!</p>
+        <p><img class='img2 img' src='img/g2.jpg' alt=''></p>
+        <p class='txt2 txt'>正解！<br>ゴリラは、<br>世界で最も大きな霊長類。<br>オスは、身長180cm、<br>体重200kgにもなるよ!</p>
+        <p><img class='img3 img' src='img/g3.jpg' alt=''></p>
+        <p class='txt3 txt'>正解！<br>ゴリラの主食は<br>植物や果物！<br>たまに昆虫を食べるんだ。<br>マッチョなのに意外だね！</p>
+        <p><img class='img4 img' src='img/g4.jpg' alt=''></p>
+        <p class='txt4 txt'>正解！<br>ゴリラは、<br>10頭から30頭の<br>群れで生活するよ!</p>
+        <p><img class='img5 img' src='img/g5.jpg' alt=''></p>
+        <p class='txt5 txt'>正解！<br>ゴリラは、<br>家族を大切にする動物。<br>母親は子どもを長い間育て、<br>子どもは母親を敬うんだ。</p>
+        <p><img class='img6 img' src='img/g6.jpg' alt=''></p>
+        <p class='txt6 txt'>正解！<br>ゴリラは、平和的。<br>人間に襲われた場合でも、<br>ほとんどの場合、<br>逃げるか、威嚇するだけ。</p>
+        <p><img class='img7 img' src='img/g7.jpg' alt=''></p>
+        <p class='txt7 txt'>正解！<br>ゴリラは、絶滅危惧種。<br>森林伐採や<br>密猟などの原因で、<br>生息数が減少しているよ。</p>
+        <p><img class='img8 img' src='img/g8.jpg' alt=''></p>
+        <p class='txt8 txt'>正解！<br>ゴリラは、<br>ヒガシゴリラと<br>ニシゴリラの<br>2種に分類されるよ。</p>
+        <p><img class='img9 img' src='img/g9.jpg' alt=''></p>
+        <p class='txt9 txt'>正解！<br>ゴリラの標準和名は、<br>大猩々<br>（おおしょうじょう）</p>
+        <p><img class='img10 img' src='img/g10.jpg' alt=''></p>
+        <p class='txt10 txt'>正解！<br>あなたはゴリラマスター！<br>ゴリラの<br>95%はB型!</p>
+      </div>
+      <div class='choice'>
+        <p class='f abo'>A型</p>
+        <p class='t abo'>B型</p><!-- 全てB型 -->
+        <p class='f abo'>O型</p>
+        <p class='f abo'>AB型</p>
+        <p class='next'>つぎのクイズ</p>
+      </div>
+    </main>
+
+    <div id='gameover'>
+      <h2>ざんねん...不正解</p>
+      <button class='start-btn'>リトライ</button>
+    </div>
+
+  </div><!-- /.container -->
+
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js'></script>
+
+  <script>
+    $(function(){
+      $('.start-btn').on('click',function(){
+        console.log('start');
+        $('#start').hide();
+        $('#main').show();
+        $('.img1').show();
+        $('.txt1').show();
+        $('.img2').show();
+        $('.txt2').show();
+        $('.img3').show();
+        $('.txt3').show();
+        $('.img4').show();
+        $('.txt4').show();
+        $('.img5').show();
+        $('.txt5').show();
+        $('.img6').show();
+        $('.txt6').show();
+        $('.img7').show();
+        $('.txt7').show();
+        $('.img8').show();
+        $('.txt8').show();
+        $('.img9').show();
+        $('.txt9').show();
+        $('.img10').show();
+        $('.txt10').show();
+        $('#gameover').hide();
+      });
+
+      let cnt=0;
+
+      $('.t , .next' ).on('click',function(){
+        cnt =cnt + 1;
+        console.log('true');
+        console.log('cnt'+String(cnt));
+        let a = cnt % 2;
+        console.log('anser'+String(a));
+
+        if(cnt<20){/* リロード時選択肢がチラ見えするので20未満追記 */
+          if(a == 1 ){
+            $('.abo').hide();
+            $('.next').show();         
+          }else{
+            $('.abo').show();
+            $('.next').hide();         
+            }
+        }else{
+          ;
+        }
+
+
+        if(cnt == 1){
+          $('.img1').hide();
+        }else if(cnt == 2){
+          $('.txt1').hide();
+        }else if(cnt == 3){
+          $('.img2').hide();
+        }else if(cnt == 4){
+          $('.txt2').hide();
+        }else if(cnt == 5){
+          $('.img3').hide();
+        }else if(cnt == 6){
+          $('.txt3').hide();
+        }else if(cnt == 7){
+          $('.img4').hide();
+        }else if(cnt == 8){
+          $('.txt4').hide();
+        }else if(cnt == 9){
+          $('.img5').hide();
+        }else if(cnt == 10){
+          $('.txt5').hide();
+        }else if(cnt == 11){
+          $('.img6').hide();
+        }else if(cnt == 12){
+          $('.txt6').hide();
+        }else if(cnt == 13){
+          $('.img7').hide();
+        }else if(cnt == 14){
+          $('.txt7').hide();
+        }else if(cnt == 15){
+          $('.img8').hide();
+        }else if(cnt == 16){
+          $('.txt8').hide();
+        }else if(cnt == 17){
+          $('.img9').hide();
+        }else if(cnt == 18){
+          $('.txt9').hide();
+        }else if(cnt == 19){
+          $('.img10').hide();
+          $('.next').html('もう一回クソゲーやる？');
+        }else{
+          location.reload(); 
+          cnt=0;
+        }
+      });
+      
+
+      $('.f').on('click',function(){
+        cnt=0;
+        console.log('false')
+        $('#main').hide();
+        $('#gameover').show();
+      });
+    });/* jq end */
+    
+  </script>
+
+</body>
+</html>

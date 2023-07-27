@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品ページ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+  <link rel="stylesheet" href="css/style_item.css">
+</head>
+
+<body>
+  <p id="burger" class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+  </p>
+  <!-- burger button -->
+
+  <header id="funiture_top">
+      <div class="logo">
+          <h1><span>Renewal Open </span>K Funiture Store</h1>
+      </div>
+  </header>
+  <!-- header -->
+
+  <nav id="g_nav" class="nav_pc">
+          <ul class="nav_inner">
+              <li><a href="index.html#chair">Chair</a></li>
+              <li><a href="index.html#desk">Desk</a></li>
+              <li><a href="index.html#rug">Rug</a></li>
+              <li><a href="index.html#funiture_top">Top</a></li>
+          </ul>
+  </nav>
+  <!-- nav  -->
+
+  <main class="main ">
+    <section class="container">
+      <div class="item-img">
+        <p><img src="img/chair1.jpg" alt="chair1"></p>
+      </div>
+      <!-- /.main-img -->
+
+      <div class="item-text">
+      <h2>chair1</h2>
+
+      <h3>商品説明</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima explicabo nihil, ipsam optio repudiandae totam quo, maxime obcaecati unde itaque natus dolorum! Sequi commodi blanditiis quaerat soluta dolorem, quisquam quidem.</p>
+
+      <p>¥99.999 + tax</p>
+
+      <table>
+        <tr>
+          <th>Color</th>
+          <th>Count</th>
+        </tr>
+        <tr>
+          <td>
+            <label>
+              <input type="radio" name="color" checked>gray
+            </label>
+          </td>
+          <td>
+            <select name="count">
+              <option value='item1'>1</option>
+              <option value='item2'>2</option>
+              <option value='item3'>3</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>
+              <input type="radio" name="color">green
+            </label>
+          </td>
+          <td>
+            <select name="count">
+              <option value='item1'>1</option>
+              <option value='item2'>2</option>
+              <option value='item3'>3</option>
+            </select>
+          </td>
+        </tr>
+
+      </table>
+
+      <!-- <a href="#">カートへ</a> -->
+      <p><input type="submit" value="カートへ"></p>
+
+      <h3>詳細情報</h3>
+        <dl>
+          <dt>サイズ</dt>
+          <dd>
+          W1500×D820×H775(SH420)(mm)
+          </dd>
+
+          <dt>カラー</dt>
+          <dd>
+          グレー/グリーン
+          </dd>
+
+          <dt>材質</dt>
+          <dd>
+          カバー：ポリエステル<br>
+          背：ウレタンフォーム・シリコンフィル・フェザー<br>
+          座：ウレタンフォーム・シリコンフィル・フェザー
+          </dd>
+
+          <dt>仕上げ</dt>
+          <dd>
+          フレーム：ウレタン樹脂塗装
+          </dd>
+
+          <dt>重量</dt>
+          <dd>
+          商品重量：約7kg
+          </dd>
+
+          <dt>備考</dt>
+          <dd>
+          付属：脚部フェルト<br>
+          カバー：手洗い・ドライクリーニング可<br>
+          脚部取付時間：約20分(2人)
+          </dd>
+        </dl>
+      </div>
+      <!-- /.main-text -->
+    </section>
+  </main>
+  <!-- main -->
+
+  <footer>
+      <p>K Funiture Store copy right 2023</p>
+  </footer>
+  <!-- footer -->
+
+
+    <!-- to Top -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="jquery.bxslider.min.js"></script>
+    <script>
+
+
+    $(function(){
+        // -----------------------
+        //  burger メニュー関連 
+        // -----------------------
+        let burger= $('#burger');
+        let g_nav= $('#g_nav');
+        let g_nav_a= $('#g_nav a');
+        // 各HTMLの場所を変数、burger、navSp、navSp_aに代入
+
+        burger.on('click',function(){
+            $(this).toggleClass('active');
+            g_nav.toggleClass('drawer');
+            
+        });
+
+        g_nav_a.on('click',function(){
+            burger.toggleClass('active');
+            g_nav.toggleClass('drawer');
+            
+        });
+
+
+      // -----------------------
+      //  ラジオボタン関連 
+      // -----------------------
+      let btn= $('#burger');
+
+
+    });
+  
+
+    </script>
+</body>
+</html>
