@@ -30,7 +30,7 @@ vertical-align: bottom;
 .container{
 position: absolute;
 max-width: 800px;
-/* height: 500px; */
+height: 100%;
 top: 0;
 left: 0;
 right: 0;
